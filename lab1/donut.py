@@ -10,7 +10,7 @@ R = 2.0
 r = 0.3
 W = 0.04
 
-M_PI = 3.14
+pi = 3.14
 
 p0 = gmsh.model.geo.addPoint(0, 0, 0, lc)
 p1 = gmsh.model.geo.addPoint(R-r, 0, 0, lc)
@@ -34,10 +34,10 @@ gmsh.model.geo.synchronize()
 gmsh.model.mesh.generate(2)
 
 
-rot1 = gmsh.model.geo.revolve([(2, s1)], 0, 0, 0, 0, 0, 1, M_PI /2)
-rot2 = gmsh.model.geo.revolve([(2, rot1[0][1])], 0, 0, 0, 0, 0, 1, M_PI / 2)
-rot3 = gmsh.model.geo.revolve([(2, rot2[0][1])], 0, 0, 0, 0, 0, 1, M_PI / 2)
-rot4 = gmsh.model.geo.revolve([(2, rot3[0][1])], 0, 0, 0, 0, 0, 1, M_PI / 2)
+rot1 = gmsh.model.geo.revolve([(2, s1)], 0, 0, 0, 0, 0, 1, pi /2)
+rot2 = gmsh.model.geo.revolve([(2, rot1[0][1])], 0, 0, 0, 0, 0, 1, pi / 2)
+rot3 = gmsh.model.geo.revolve([(2, rot2[0][1])], 0, 0, 0, 0, 0, 1, pi / 2)
+rot4 = gmsh.model.geo.revolve([(2, rot3[0][1])], 0, 0, 0, 0, 0, 1, pi / 2)
 
 gmsh.model.geo.addPhysicalGroup(3, [rot1[1][1], rot2[1][1], rot3[1][1], rot4[1][1]], 1)
 gmsh.model.geo.synchronize()
